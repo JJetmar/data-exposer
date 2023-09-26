@@ -15,8 +15,10 @@
         if (exposeUrl) {
             location.href = exposeUrl;
         } else {
-            const exposedData = atob(location.hash);
-            document.querySelector('pre').innerText = JSON.stringify(exposedData, null, 2);
+            const exposedData = atob(location.hash.substring(1));
+            if (exposedData) {
+                document.querySelector('pre').innerText = JSON.stringify(exposedData, null, 2);
+            }
         }
     </script>
 </body>
