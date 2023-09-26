@@ -17,7 +17,7 @@
         } else {
             const exposedData = atob(location.hash.substring(1));
             if (exposedData) {
-                document.querySelector('pre').innerHTML = JSON.stringify(exposedData, null, 2);
+                document.querySelector('pre').innerText = JSON.stringify(JSON.parse(exposedData), null, 2);
             }
         }
     </script>
