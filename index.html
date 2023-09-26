@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Data exposer</title>
+</head>
+<body>
+    <h1>Data exposer<h1>
+
+    <pre>
+    </pre>
+    <script>
+        const exposeUrl = new URL(location.href).searchParams.get('url');
+
+        if (exposeUrl) {
+            location.href = exposeUrl;
+        } else {
+            const exposedData = atob(location.hash);
+            document.querySelector('pre').innerText = JSON.stringify(exposedData, null, 2);
+        }
+    </script>
+</body>
+</html>
